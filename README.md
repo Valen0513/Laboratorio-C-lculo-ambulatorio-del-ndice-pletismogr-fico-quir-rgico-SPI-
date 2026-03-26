@@ -50,6 +50,43 @@ Para calcular el SPI latido a latido, se implementa un algoritmo de detección d
 
 La detección correcta de este par máximo-mínimo es fundamental, ya que la amplitud pletismográfica de pulso (PPGA) se obtiene como la diferencia entre la amplitud del pico y la del valle consecutivo. Por ello, contar con un algoritmo que detecte de forma consistente ambos puntos de cada latido resulta indispensable para el cálculo confiable de parámetros derivados de la señal PPG, como el SPI. En este contexto, el método del alpinista constituye una estrategia adecuada para la práctica, debido a que fue diseñado para operar en tiempo real y mostrar un buen desempeño incluso cuando la amplitud de la señal disminuye.
 
+<img width="922" height="483" alt="image" src="https://github.com/user-attachments/assets/8d142e7e-bfe6-429d-b50a-19782220db0b" />
+
+Configuración y conexión serial: se inicia inicia definiendo los parámetros básicos de adquisición, entre ellos el puerto de comunicación, la velocidad de transmisión, la duración total de la captura y el tamaño de la ventana de visualización. Posteriormente, se establece la conexión serial con el dispositivo y se configura el terminador de línea, lo cual permite recibir correctamente cada muestra enviada por el sistema de adquisición. Esta etapa es fundamental porque garantiza la comunicación continua entre el sensor y MATLAB, requisito necesario para realizar un cálculo del SPI latido a latido durante un tiempo finito.
+
+<img width="676" height="272" alt="image" src="https://github.com/user-attachments/assets/79a09dd3-e224-42c5-87b1-a0bbbac1cf0a" />
+
+Inicialización de variables y preparación de la gráfica: Una vez establecida la comunicación, se crea los vectores donde se almacenan el tiempo, la señal PPG, los valores calculados de SPI y las variables auxiliares necesarias para el procesamiento. Además, se inicializa una figura en tiempo real mediante animatedline, en la cual se representa la señal adquirida y se reservan trazas adicionales para marcar visualmente los picos y los valles detectados. Esto permite supervisar simultáneamente la calidad de la adquisición y el funcionamiento del algoritmo de detección de máximos y mínimos.
+
+<img width="808" height="536" alt="image" src="https://github.com/user-attachments/assets/22913f29-b9ee-45ac-8f5f-6b79239ea082" />
+
+Adquisición de la señal PPG en tiempo real: Durante la ejecución principal, se lee continuamente los datos provenientes del puerto serial, convierte cada muestra a valor numérico y registra su instante de adquisición. A su vez, cada dato válido se añade a la señal completa y se representa de forma dinámica en pantalla. El código también invierte el signo de la muestra, con el fin de orientar la señal de manera conveniente para la detección de picos. De esta forma, se realiza una captura temporizada de la onda PPG mientras esta es visualizada en tiempo real.
+
+
+<img width="751" height="326" alt="image" src="https://github.com/user-attachments/assets/39127590-621b-4592-ad42-d83ad3b7601e" />
+
+
+Ventana deslizante y autoescala de la visualización: Con el propósito de mejorar la observación de la señal, se implementa una ventana deslizante de tiempo, mostrando únicamente el segmento más reciente de la adquisición. Asimismo, calcula automáticamente los límites verticales de la gráfica a partir del mínimo y máximo del tramo visible, añadiendo un pequeño margen para evitar que la señal quede recortada. Esta estrategia no modifica el contenido de la señal, pero sí facilita la inspección visual del comportamiento pulsátil y de la detección de eventos relevantes.
+
+
+<img width="742" height="438" alt="image" src="https://github.com/user-attachments/assets/e3c324f2-b83c-4990-ae7f-376aa4c67643" />
+
+
+Buffer de procesamiento y detección de máximos: Para procesar la señal latido a latido, se almacena las muestras recientes en un buffer. Cuando se dispone de suficientes datos, toma una ventana corta de análisis y calcula el intervalo temporal promedio entre muestras para estimar la separación mínima permitida entre picos. Después, utiliza la función findpeaks con dos criterios: una distancia mínima entre picos y una prominencia mínima adaptada a la variabilidad de la señal. Así, se reduce la probabilidad de detectar falsos máximos originados por ruido o pequeñas oscilaciones. Esta lógica es coherente con la idea general del algoritmo de detección de picos y valles descrito en la literatura consultada, donde la identificación de eventos válidos depende del comportamiento local de la onda y de condiciones adaptativas para evitar errores de detección.
+
+Evitar doble detección y cálculo del HBI: Cuando el algoritmo encuentra un pico, verifica que no se trate de una repetición del último evento detectado. Para ello compara el instante del nuevo pico con el del pico anterior y solo lo acepta si ha transcurrido un tiempo mínimo. Una vez validado, el programa calcula el HBI (heartbeat interval), definido como la diferencia temporal entre dos picos consecutivos. Este parámetro representa el intervalo entre latidos y constituye una de las variables empleadas posteriormente para estimar el SPI.
+
+Detección de mínimos y cálculo de la PPGA: Después de localizar cada máximo, el código busca el mínimo asociado dentro de un segmento previo de la señal. Para ello selecciona una pequeña región antes del pico y determina el menor valor contenido en ella, asumiendo que corresponde al valle del pulso. Con el máximo y el mínimo ya identificados, se calcula la PPGA (photoplethysmographic pulse wave amplitude) como la diferencia entre la amplitud del pico y la del valle consecutivo. Esta etapa responde directamente a lo solicitado por la guía, ya que implementa un algoritmo de detección de máximos y mínimos sobre la señal PPG. Además, coincide con la literatura de referencia, donde la detección de picos y valles se considera esencial para caracterizar adecuadamente cada pulso fotopletismográfico.
+
+Normalización de HBI y PPGA: para el intervalo entre latidos. En el caso de la PPGA, se usa el promedio de los últimos valores almacenados; para el HBI, se utiliza el promedio de los intervalos entre picos detectados. Luego, ambos parámetros se expresan de manera relativa frente a sus respectivas referencias. Finalmente, sus valores se limitan superiormente para evitar que fluctuaciones extremas distorsionen el cálculo del índice. Este paso permite estabilizar la estimación del SPI y hacerla menos sensible a cambios abruptos aislados.
+
+Cálculo y clasificación del SPI: Una vez obtenidos HBI_norm y PPGA_norm, el programa calcula el SPI mediante una combinación ponderada de ambas variables y restringe el resultado al intervalo de 0 a 100. Cada nuevo valor de SPI se almacena junto con su instante correspondiente, permitiendo construir posteriormente su evolución temporal. Además, el código calcula la frecuencia cardíaca a partir del HBI y clasifica el valor del SPI en tres estados interpretativos: analgesia alta, rango óptimo o dolor. Finalmente, imprime en la ventana de comandos el tiempo, la frecuencia cardíaca, el valor de SPI y la categoría asociada, cumpliendo así con lo exigido en la práctica para el monitoreo en tiempo real.
+
+Gráficas finales de señal PPG y SPI: Al finalizar la adquisición, el programa cierra la comunicación serial y genera dos gráficas finales: una correspondiente a la señal PPG completa adquirida y otra que muestra la evolución del SPI en función del tiempo. Esta última parte se ajusta de manera directa a la instrucción posterior de la guía, en la que se pide modificar el código para visualizar gráficamente el SPI al final de la captura.
+
+Relación con el algoritmo de máximos y mínimos de la literatura: Aunque tu implementación usa findpeaks y una búsqueda local del valle, su principio general es consistente con el enfoque reportado en el segundo PDF, donde se describe un método de detección de picos y valles en señales PPG basado en el análisis de la forma de la onda y en criterios adaptativos. En ambos casos, el objetivo es identificar de manera confiable los máximos y mínimos de cada pulso para extraer parámetros como el intervalo entre latidos y la amplitud pico-valle, necesarios para el cálculo de índices derivados de la señal fotopletismográfica.
+
+
 
 PARTE C
 
