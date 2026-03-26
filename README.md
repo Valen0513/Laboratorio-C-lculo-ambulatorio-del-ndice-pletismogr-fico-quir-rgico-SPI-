@@ -44,6 +44,11 @@ En este laboratorio, debido a limitaciones prácticas, se utilizó una adaptaci�
 
 PARTE B 
 
+El índice pletismográfico quirúrgico (SPI, Surgical Pleth Index) es un parámetro numérico empleado para estimar el balance entre nocicepción y analgesia a partir de la señal fotopletismográfica (PPG). Este índice toma valores entre 0 y 100, donde los valores más altos se asocian con una mayor respuesta nociceptiva o de estrés, y durante anestesia general suele considerarse como rango adecuado de analgesia el intervalo entre 20 y 50. La práctica se enfoca en la extracción y cálculo de características derivadas de la onda de pulso para estimar dicho balance autonómico.
+
+Para calcular el SPI latido a latido, se implementa un algoritmo de detección de máximos y mínimos sobre la señal adquirida. Como base para esta etapa se tomó de la literatura el “método del alpinista” (Mountaineer’s Method for Peak Detection, MMPD), el cual permite detectar picos sistólicos en tiempo real a partir del cambio de pendiente de la señal: durante la fase ascendente de la onda, el algoritmo cuenta el número de incrementos consecutivos y, cuando la pendiente cambia de positiva a negativa y se supera un umbral adaptativo, se identifica un máximo. A su vez, el algoritmo también registra el valle que precede a cada pico, lo que permite conformar el par pico-valle de cada pulso.
+
+La detección correcta de este par máximo-mínimo es fundamental, ya que la amplitud pletismográfica de pulso (PPGA) se obtiene como la diferencia entre la amplitud del pico y la del valle consecutivo. Por ello, contar con un algoritmo que detecte de forma consistente ambos puntos de cada latido resulta indispensable para el cálculo confiable de parámetros derivados de la señal PPG, como el SPI. En este contexto, el método del alpinista constituye una estrategia adecuada para la práctica, debido a que fue diseñado para operar en tiempo real y mostrar un buen desempeño incluso cuando la amplitud de la señal disminuye.
 
 
 PARTE C
