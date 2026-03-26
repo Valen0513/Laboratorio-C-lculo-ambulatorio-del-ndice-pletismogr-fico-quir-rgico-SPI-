@@ -36,6 +36,18 @@ El sensor fue conectado al microcontrolador ESP32, permitiendo la adquisición y
 
 <img width="896" height="342" alt="image" src="https://github.com/user-attachments/assets/a0221264-1903-49b0-847b-9a7370f7dad3" />
 
+COLD PRESSOR TEST (CPT)
+
+El Cold Pressor Test (CPT) es una técnica utilizada en fisiología cardiovascular para evaluar la respuesta del sistema nervioso autónomo ante un estímulo de frío. Tradicionalmente, consiste en la inmersión de la mano en agua entre 0 y 5 °C durante 1 a 3 minutos, lo que provoca una activación del sistema nervioso simpático, generando vasoconstricción periférica, aumento de la presión arterial y cambios en la frecuencia cardíaca.
+
+En este laboratorio, debido a limitaciones prácticas, se utilizó una adaptación del método mediante compresas previamente enfriadas en un congelador, las cuales se colocaron sobre el antebrazo del sujeto. Durante el procedimiento se registró la señal fotopletismográfica (PPG) en tres fases: basal, aplicación del estímulo frío y recuperación, permitiendo observar las variaciones del volumen sanguíneo periférico ante el estímulo.
+
+PARTE B 
+
+
+
+PARTE C
+
 
 
 
