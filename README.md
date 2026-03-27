@@ -109,11 +109,26 @@ En la gráfica de SPI en función del tiempo se observa un comportamiento dividi
   
 - Recuperación (80–120 s): SPI descendiendo progresivamente hasta valores entre 35 y 45
 
-El aumento del SPI durante la aplicación del hielo puede explicarse por la activación simpática desencadenada por el estímulo doloroso. Fisiológicamente, esta respuesta se asocia con vasoconstricción periférica y cambios en la dinámica cardiovascular, lo que modifica tanto la amplitud de la onda PPG como el intervalo entre pulsos. Precisamente, la literatura reporta que una disminución en la amplitud de la señal PPG puede relacionarse con vasoconstricción periférica secundaria a un incremento del tono simpático, situación relevante en contextos de dolor o estrés. Por ello, el incremento del SPI durante el Cold Pressor Test resulta coherente con la fisiología esperada y con el objetivo de la práctica de reproducir una respuesta similar a la nocicepción aguda
+El aumento del SPI durante la aplicación del hielo puede explicarse por la activación simpática desencadenada por el estímulo doloroso. Fisiológicamente, esta respuesta se asocia con vasoconstricción periférica y cambios en la dinámica cardiovascular, lo que modifica tanto la amplitud de la onda PPG como el intervalo entre pulsos. Precisamente, la literatura reporta que una disminución en la amplitud de la señal PPG puede relacionarse con vasoconstricción periférica secundaria a un incremento del tono simpático, situación relevante en contextos de dolor o estrés. Por ello, el incremento del SPI durante el Cold Pressor Test resulta coherente con la fisiología esperada y con el objetivo de la práctica de reproducir una respuesta similar a la nocicepción aguda.
 
+• Pregunta 1: ¿Cómo se relacionan las variaciones del volumen sanguíneo periférico con el balance autonómico? 
 
+Las variaciones del volumen sanguíneo periférico están estrechamente relacionadas con el balance autonómico porque reflejan los cambios en el tono vascular controlado por el sistema nervioso autónomo. Cuando aumenta la actividad simpática, como sucede ante estímulos dolorosos o de estrés, se produce vasoconstricción periférica, lo que reduce el volumen de sangre pulsátil en la zona medida y disminuye la amplitud de la señal PPG. Por el contrario, en condiciones de reposo, donde la activación simpática es menor, la perfusión periférica suele ser más estable y la amplitud de la señal tiende a mantenerse más alta y regular. Estos cambios fueron importantes porque a partir de la amplitud de la onda PPG y del comportamiento entre pulsos se pudo estimar el estado fisiológico del sujeto y su respuesta frente al Cold Pressor Test.
 
-PARTE C
+• Pregunta 2: ¿Cómo se compara el SPI con otros índices comúnmente empleados en cirugía, como el índice nocicepción-analgesia (ANI) y el índice de perfusión? me puedes responder estas preguntas basado en todo el laboratorio
+
+El SPI se diferencia de otros índices porque está diseñado para estimar el balance entre nocicepción y analgesia usando información obtenida de la señal PPG, especialmente la amplitud del pulso y el intervalo entre latidos. Esto lo hace útil para detectar cambios asociados a una mayor activación simpática, como los que se generan durante una maniobra dolorosa. En cambio, el ANI se basa principalmente en la variabilidad de la frecuencia cardiaca, por lo que está más relacionado con la modulación parasimpática. Por su parte, el índice de perfusión se centra únicamente en la intensidad de la perfusión periférica en el sitio de medición, pero no integra de forma directa la relación entre nocicepción y analgesia. Por eso, en el contexto de este laboratorio, el SPI resulta más completo, ya que resume en un solo valor varios cambios fisiológicos de la señal PPG observados durante el reposo, la exposición al hielo y la recuperación
+
+CONCLUSIONES
+
+- A lo largo de la práctica se comprobó que la señal fotopletismográfica puede usarse no solo para observar el pulso, sino también para extraer información fisiológica relacionada con la respuesta autonómica del cuerpo. Mediante la adquisición de la señal, la detección de máximos y mínimos, y el cálculo de variables como la amplitud del pulso y el intervalo entre latidos, fue posible estimar el SPI y analizar su comportamiento antes, durante y después del Cold Pressor Test. Los resultados mostraron que durante la aplicación del estímulo con hielo el SPI aumentó respecto al reposo, lo que indica una mayor activación simpática y confirma que la señal PPG sí refleja cambios fisiológicos asociados al estrés o al dolor.
+
+- La práctica también permitió evidenciar que, aunque el SPI es una herramienta útil para aproximarse al balance nocicepción-analgesia, su cálculo depende en gran medida de la calidad de la señal adquirida y del desempeño del algoritmo de detección de picos y valles. Por esta razón, factores como el ruido, el movimiento, la variación de amplitud y la correcta identificación de máximos y mínimos influyen directamente en la confiabilidad del resultado. En ese sentido, el laboratorio no solo sirvió para calcular un índice fisiológico, sino también para comprender la importancia del procesamiento de señales biomédicas en tiempo real y las limitaciones que existen al intentar relacionar una medición objetiva con una experiencia subjetiva como el dolor
+
+REFERENCIAS
+
+- file:///C:/Users/HP%20RY5/Downloads/2357-53280-rfiua-90-00042.pdf
+- 
 
 
 
