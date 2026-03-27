@@ -1,5 +1,5 @@
 
-#Laboratorio #3 Calculo ambulatorio del ídice pletimográfico quirúrgico (SPI)
+#Laboratorio #3 Calculo ambulatorio del índice pletimográfico quirúrgico (SPI)
 
 PARTE A
 
