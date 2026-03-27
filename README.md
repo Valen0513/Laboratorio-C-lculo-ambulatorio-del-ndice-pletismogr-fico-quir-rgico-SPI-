@@ -1,5 +1,9 @@
 
-#Laboratorio #3 Calculo ambulatorio del índice pletimográfico quirúrgico (SPI)
+# Laboratorio #3 Calculo ambulatorio del índice pletimográfico quirúrgico (SPI)
+
+# Leidy Valentina Rodríguez Gómez
+
+# Ana Maria Abril Gómez
 
 PARTE A
 
@@ -36,6 +40,8 @@ Debido a estas limitaciones, se optó por utilizar un sensor comercial integrado
 El sensor fue conectado al microcontrolador ESP32, permitiendo la adquisición y visualización de la señal en tiempo real. Posteriormente, dicha señal fue utilizada para el análisis y procesamiento.
 
 <img width="896" height="342" alt="image" src="https://github.com/user-attachments/assets/a0221264-1903-49b0-847b-9a7370f7dad3" />
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/b066ed5d-89f6-4d7c-9d8c-71867c79623a" />
 
 COLD PRESSOR TEST (CPT)
 
@@ -111,6 +117,8 @@ En la gráfica de SPI en función del tiempo se observa un comportamiento dividi
 
 El aumento del SPI durante la aplicación del hielo puede explicarse por la activación simpática desencadenada por el estímulo doloroso. Fisiológicamente, esta respuesta se asocia con vasoconstricción periférica y cambios en la dinámica cardiovascular, lo que modifica tanto la amplitud de la onda PPG como el intervalo entre pulsos. Precisamente, la literatura reporta que una disminución en la amplitud de la señal PPG puede relacionarse con vasoconstricción periférica secundaria a un incremento del tono simpático, situación relevante en contextos de dolor o estrés. Por ello, el incremento del SPI durante el Cold Pressor Test resulta coherente con la fisiología esperada y con el objetivo de la práctica de reproducir una respuesta similar a la nocicepción aguda.
 
+PREGUNTAS PARA DISCUSIÓN
+
 • Pregunta 1: ¿Cómo se relacionan las variaciones del volumen sanguíneo periférico con el balance autonómico? 
 
 Las variaciones del volumen sanguíneo periférico están estrechamente relacionadas con el balance autonómico porque reflejan los cambios en el tono vascular controlado por el sistema nervioso autónomo. Cuando aumenta la actividad simpática, como sucede ante estímulos dolorosos o de estrés, se produce vasoconstricción periférica, lo que reduce el volumen de sangre pulsátil en la zona medida y disminuye la amplitud de la señal PPG. Por el contrario, en condiciones de reposo, donde la activación simpática es menor, la perfusión periférica suele ser más estable y la amplitud de la señal tiende a mantenerse más alta y regular. Estos cambios fueron importantes porque a partir de la amplitud de la onda PPG y del comportamiento entre pulsos se pudo estimar el estado fisiológico del sujeto y su respuesta frente al Cold Pressor Test.
@@ -128,7 +136,13 @@ CONCLUSIONES
 REFERENCIAS
 
 - file:///C:/Users/HP%20RY5/Downloads/2357-53280-rfiua-90-00042.pdf
-- 
+- https://link.springer.com/article/10.1007/s00540-022-03126-8
+- https://www.oxifing.com/articulos/PPG_application_in_clinical_Physiological_measurement.pdf
+- https://pubmed.ncbi.nlm.nih.gov/36272031/
+- https://pubmed.ncbi.nlm.nih.gov/17322588/
+- https://doi.org/10.1016/j.bja.2019.03.024.
+- https://doi.org/10.1093/bja/aeq291.
+
 
 
 
