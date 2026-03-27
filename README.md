@@ -94,6 +94,21 @@ Relación con el algoritmo de máximos y mínimos de la literatura: Aunque tu im
 
 <img width="525" height="345" alt="image" src="https://github.com/user-attachments/assets/79535f44-313f-44af-8631-3e31ba718cc0" />
 
+En la gráfica de adquisición en tiempo real de la señal PPG se aprecia la onda pulsátil registrada por el sensor óptico, junto con los picos marcados por el algoritmo de detección. Estos puntos representan los máximos sistólicos de cada pulso y permiten calcular el intervalo entre latidos (HBI). A partir de cada pico y del valle asociado, también se calcula la amplitud de la onda de pulso (PPGA). En conjunto, estas dos variables son utilizadas para estimar el SPI latido a latido. Aunque la señal presenta pequeñas irregularidades y ruido, el algoritmo logra identificar adecuadamente los eventos principales, lo que demuestra que el sistema desarrollado puede extraer características útiles de la PPG en tiempo real. 
+
+<img width="1420" height="977" alt="image" src="https://github.com/user-attachments/assets/af559ae8-82b0-492f-9391-6e21069caea7" />
+
+En la gráfica de SPI en función del tiempo se observa un comportamiento dividido en tres etapas. Durante los primeros 40 segundos, correspondientes al estado de reposo, el SPI permanece relativamente estable y en valores moderados, lo que indica un balance autonómico basal sin una estimulación nociceptiva importante. Entre los 40 y 80 segundos, cuando se aplica la maniobra Cold Pressor Test, el SPI aumenta de forma evidente, reflejando una mayor activación simpática asociada al estímulo doloroso producido por el contacto con el hielo. Finalmente, en los últimos 40 segundos, una vez retirada la mano del estímulo, el SPI desciende progresivamente y tiende a acercarse nuevamente a los valores iniciales, lo cual sugiere recuperación fisiológica y retorno gradual a condiciones de reposo. 
+
+<img width="1780" height="938" alt="image" src="https://github.com/user-attachments/assets/7a39fb36-88d6-49a2-8eed-9deedc5ef95b" />
+
+- Reposo (0–40 s): SPI entre 28 y 35, con un valor promedio cercano a 32
+  
+- Durante el hielo / CPT (40–80 s): SPI entre 55 y 68, con un valor promedio cercano a 60
+  
+- Recuperación (80–120 s): SPI descendiendo progresivamente hasta valores entre 35 y 45
+
+El aumento del SPI durante la aplicación del hielo puede explicarse por la activación simpática desencadenada por el estímulo doloroso. Fisiológicamente, esta respuesta se asocia con vasoconstricción periférica y cambios en la dinámica cardiovascular, lo que modifica tanto la amplitud de la onda PPG como el intervalo entre pulsos. Precisamente, la literatura reporta que una disminución en la amplitud de la señal PPG puede relacionarse con vasoconstricción periférica secundaria a un incremento del tono simpático, situación relevante en contextos de dolor o estrés. Por ello, el incremento del SPI durante el Cold Pressor Test resulta coherente con la fisiología esperada y con el objetivo de la práctica de reproducir una respuesta similar a la nocicepción aguda
 
 
 
